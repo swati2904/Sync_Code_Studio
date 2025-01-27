@@ -69,16 +69,16 @@ io.on('connection', (socket) => {
 });
 
 // Export the serverless function for Vercel
-module.exports = (req, res) => {
-  if (req.method === 'GET') {
-    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-  } else {
-    // This ensures the socket.io connection is handled properly
-    server(req, res);
-  }
-};
+// module.exports = (req, res) => {
+//   if (req.method === 'GET') {
+//     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+//   } else {
+//     // This ensures the socket.io connection is handled properly
+//     server(req, res);
+//   }
+// };
 
 //run locally
 
-// const PORT = process.env.PORT || 5000;
-// server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
