@@ -14,19 +14,18 @@ Sync Code Editor is a real-time collaborative code editing platform, where multi
 
 - **Frontend**: React.js, React Router, React Hot Toast, CodeMirror, Socket.IO
 - **Backend**: Express.js, Socket.IO
-- **Database**: None (Socket.IO handles realtime code synchronization)
+- **Database**: Socket.IO handles realtime code synchronization
 
 ## Prerequisites
 
-- Node.js
-- npm or yarn
+- Node.js - v20.12.1
+- npm  - 10.5.1
 
 ### Installation
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/sync-code-editor.git
-   cd sync-code-editor
+   git clone https://github.com/swati2904/Sync_Code_Studio
    ```
 
 2. Install dependencies:
@@ -41,7 +40,9 @@ Sync Code Editor is a real-time collaborative code editing platform, where multi
 
 1. Run Server:
    
-     ```cd api/node server.js```
+     ```cd api```
+   
+     ```node server.js```
    
 3. Run Frontend:
 
