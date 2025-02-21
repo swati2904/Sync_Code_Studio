@@ -8,6 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [roomId, setRoomId] = useState('');
   const [username, setUsername] = useState('');
+  const [isJoining, setIsJoining] = useState(false);
 
   const createnewRoom = (e) => {
     e.preventDefault();
@@ -17,12 +18,20 @@ const Home = () => {
   };
 
   const joinRoom = () => {
+    if (isJoining) {
+      console.log('Already joining, skipping...');
+      return;
+    }
+    setIsJoining(true);
+    console.log('Joining room...');
+
     if (!roomId || !username) {
       toast.error('Room ID & username is required');
+      setIsJoining(false);
       return;
     }
 
-    //   Redirect to editorpage
+    // Redirect to editorpage
     navigate(`/editor/${roomId}`, {
       state: {
         username,
@@ -31,7 +40,7 @@ const Home = () => {
   };
 
   const handleInputEnter = (e) => {
-    if (e.code === 'Enter') {
+    if (e.code === 'Enter' && !isJoining) {
       joinRoom();
     }
   };

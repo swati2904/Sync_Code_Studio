@@ -44,19 +44,6 @@ const EditorPage = () => {
         ({ clients, username, socketId }) => {
           if (username !== location.state?.username) {
             toast.success(`${username} joined the room.`);
-            console.log(`${username} joined`);
-          }
-          setClients(clients);
-        }
-      );
-
-      // Listening for joined event
-      socketRef.current.on(
-        ACTIONS.JOINED,
-        ({ clients, username, socketId }) => {
-          if (username !== location.state?.username) {
-            toast.success(`${username} joined the room.`);
-            console.log(`${username} joined`);
           }
           setClients(clients);
           socketRef.current.emit(ACTIONS.SYNC_CODE, {
@@ -94,6 +81,24 @@ const EditorPage = () => {
     }
   }
 
+  async function shareRoom() {
+    const url = window.location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Join my code room',
+          text: 'Join me for real-time coding collaboration!',
+          url: url,
+        });
+      } else {
+        await navigator.clipboard.writeText(url);
+        toast.success('Room URL copied to clipboard!');
+      }
+    } catch (err) {
+      console.error('Sharing failed:', err);
+    }
+  }
+
   function leaveRoom() {
     reactNavigator('/');
   }
@@ -116,13 +121,19 @@ const EditorPage = () => {
             ))}
           </div>
         </div>
-        <button className='btn copyBtn' onClick={copyRoomId}>
-          Copy ROOM ID
-        </button>
-        <button className='btn leaveBtn' onClick={leaveRoom}>
-          Leave
-        </button>
+        <div className='buttonGroup'>
+          <button className='btn copyBtn' onClick={copyRoomId}>
+            Copy ROOM ID
+          </button>
+          <button className='btn shareBtn' onClick={shareRoom}>
+            Share
+          </button>
+          <button className='btn leaveBtn' onClick={leaveRoom}>
+            Leave
+          </button>
+        </div>
       </div>
+
       <div className='editorWrap'>
         <Editor
           socketRef={socketRef}
