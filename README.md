@@ -9,12 +9,13 @@ Sync Code Editor is a real-time collaborative code editing platform, where multi
 - **CodeMirror Editor**: A feature-rich JavaScript editor with auto-closing tags, brackets, and more.
 - **User Avatars**: Display avatars based on the username.
 - **Notifications**: Users receive notifications when others join or leave the room.
+- **Share Feature**: Users can share their code snippets with others via a unique shareable link.
 
 ## Technologies Used
 
 - **Frontend**: React.js, React Router, React Hot Toast, CodeMirror, Socket.IO
 - **Backend**: Express.js, Socket.IO
-- **Database**: Socket.IO handles realtime code synchronization
+- **Database**: Socket.IO handles real-time code synchronization
 
 ## Prerequisites
 
@@ -53,6 +54,6 @@ Sync Code Editor is a real-time collaborative code editing platform, where multi
 
 ![image](https://github.com/user-attachments/assets/a44f0b49-7b75-4a45-8899-8bc2de391890)
 ![image](https://github.com/user-attachments/assets/7def85a5-5f41-4f1c-97a8-c20338ec9019)
-![image](https://github.com/user-attachments/assets/53972100-40de-40bc-9f56-7f1f19e15c52)
+![image](https://github.com/user-attachments/assets/02383f54-b654-4e6b-b719-29809817c658)
 
 
